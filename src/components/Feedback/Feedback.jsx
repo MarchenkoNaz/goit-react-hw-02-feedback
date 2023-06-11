@@ -1,12 +1,19 @@
+import PropTypes from 'prop-types'
 
-const Feedback = ({ handleClick, clikc }) => {
+import FeedbackOptions from "components/FeedbackOptions/FeedbackOptions"
+import Section from "components/Section/Section"
+
+const Feedback = ({ handleClick, options }) => {
 	return (<>
-		<button type="button" name="good" className="btn btn-dark m-1" onClick={(e) => { handleClick(e) }}>Good</button>
-		<button type="button" name="neutral" className="btn btn-dark m-1" onClick={(e) => { handleClick(e) }} >Neutral</button>
-		<button type="button" name="bad" className="btn btn-dark m-1" onClick={(e) => { handleClick(e) }} >Bad</button>
+		<Section title='Please leave feedback'>
+			<FeedbackOptions options={Object.keys(options)} onLeaveFeedback={handleClick} />
+		</Section>
 	</>)
 }
 
-Feedback.propTypes = {}
+Feedback.propTypes = {
+	handleClick: PropTypes.func,
+	options: PropTypes.object
+}
 
 export default Feedback

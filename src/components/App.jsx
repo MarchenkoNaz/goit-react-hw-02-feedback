@@ -27,11 +27,9 @@ export class App extends Component {
 
 	render() {
 		return (<>
-			<Section title='Please leave feedback'>
-				<Feedback handleClick={this.handleClick} clikc={this.clikc} />
-			</Section>
+			<Feedback handleClick={this.handleClick} options={this.state} />
 			<Section title='Statistic'>
-				<Statistic good={this.state.good} neutral={this.state.neutral} bad={this.state.bad} total={this.state.total} positive={this.state.positive} />
+				<Statistic statistic={this.state} />
 			</Section>
 		</>)
 	}
